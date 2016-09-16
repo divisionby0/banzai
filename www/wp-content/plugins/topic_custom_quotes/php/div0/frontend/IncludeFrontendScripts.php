@@ -26,8 +26,11 @@ class IncludeFrontendScripts {
         wp_register_script( 'userDataParser', $this->pluginDir.'/js/frontend/div0/user/UserDataParser.js' );
         wp_register_script( 'tooltipButton', $this->pluginDir.'/js/frontend/div0/quote/TooltipButton.js' );
 
-        wp_register_script( 'quoteInputView', $this->pluginDir.'/js\/frontend/div0/quote/QuoteInputView.js' );
-        wp_register_script( 'sentencesSelection', $this->pluginDir.'/js/frontend/div0/quote/SentencesSelection.js' );
+        wp_register_script( 'quote', $this->pluginDir.'/js/frontend/div0/quote/Quote.js' );
+        wp_register_script( 'saveQuote', $this->pluginDir.'/js/frontend/div0/quote/SaveQuote.js' );
+        wp_register_script( 'buildQuote', $this->pluginDir.'/js/frontend/div0/quote/BuildQuote.js' );
+        wp_register_script( 'quoteInputView', $this->pluginDir.'/js/frontend/div0/quote/QuoteInputView.js' );
+        wp_register_script( 'frontend', $this->pluginDir.'/js/frontend/div0/quote/Frontend.js' );
         wp_register_script( 'applicationInit', $this->pluginDir.'js/frontend/div0/Initor.js' );
     }
     private function enqueueJSScripts(){
@@ -41,8 +44,12 @@ class IncludeFrontendScripts {
         wp_enqueue_script( 'userDataParser' );
         wp_enqueue_script( 'tooltipButton' );
 
+        wp_enqueue_script( 'quote' );
+        wp_enqueue_script( 'saveQuote' );
+        wp_enqueue_script( 'buildQuote' );
+
         wp_enqueue_script( 'quoteInputView' );
-        wp_enqueue_script( 'sentencesSelection' );
+        wp_enqueue_script( 'frontend' );
         wp_enqueue_script( 'applicationInit' );
     }
 

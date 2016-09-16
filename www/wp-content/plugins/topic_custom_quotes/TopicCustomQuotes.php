@@ -33,7 +33,7 @@ include_once('php/div0/frontend/IncludeFrontendScripts.php');
 include_once('php/div0/frontend/user/User.php');
 include_once('php/div0/frontend/QuoteInputView.php');
 include_once('php/div0/frontend/DecoratePostContentWithNewQuoteInput.php');
-include_once('php/div0/frontend/DecoratePostContentWithUserData.php');
+include_once('php/div0/frontend/DecoratePostContentWithUserAndPostData.php');
 
 // views
 include_once('php/div0/views/StatesComboBox.php');
@@ -108,5 +108,5 @@ function onSiteFrontendLoad(){
     echo '<h1>Site loaded. Post type='.get_post_type().'</h1>';
     new IncludeFrontendScripts();
     new DecoratePostContentWithNewQuoteInput();
-    new DecoratePostContentWithUserData();
+    new DecoratePostContentWithUserAndPostData();
 }

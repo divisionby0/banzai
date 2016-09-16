@@ -5,12 +5,28 @@ var QuoteInputView = function(){
     var quoteNoteInput;
     var container;
     var $;
+    var quote;
+    var note;
 
     function getContainer(){
         container = $('.quoteInputElement');
     }
     function getButton(){
         createQuoteButton = $('#createQuoteButton');
+    }
+    function addButtonListener(){
+        createQuoteButton.on('click', function(){
+            getNote();
+            EventBus.dispatch(SAVE_QUOTE_REQUEST, {quote:quote, note:note});
+        });
+    }
+
+    function removeButtonListener(){
+        createQuoteButton.off('click');
+    }
+
+    function getNote(){
+        note = quoteNoteInput.val();
     }
 
     function getQuoteNoteInput(){
@@ -29,6 +45,7 @@ var QuoteInputView = function(){
     }
 
     function onQuoteChanged(text){
+        quote = text;
         quoteTextContainer.html(text);
     }
 
@@ -45,9 +62,11 @@ var QuoteInputView = function(){
 
     return{
         init:function(){
+            console.log('QuoteInputView');
             $ = jQuery.noConflict();
             getContainer();
             getButton();
+            addButtonListener();
             getQuoteNoteInput();
             getQuoteTextContainer();
             addListeners();
