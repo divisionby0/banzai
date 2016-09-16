@@ -1,0 +1,903 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Louis v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-03-31 18:27+0300\n"
+"Last-Translator: Игорь <dybabiz@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ louis
+#: comments.php:27
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Один комментарий для &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s комментариев для &ldquo;%2$s&rdquo;"
+
+# @ louis
+#: comments.php:34 comments.php:59
+msgid "Comment navigation"
+msgstr "Навигация по комментариям"
+
+# @ louis
+#: comments.php:39 comments.php:64
+msgid "Older Comments"
+msgstr "Старые  комментарии"
+
+# @ louis
+#: comments.php:40 comments.php:65
+msgid "Newer Comments"
+msgstr "Новые Комментарии"
+
+# @ louis
+#: comments.php:76
+msgid "Comments are closed."
+msgstr "Комментарии закрыты"
+
+# @ louis
+#: footer.php:72
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+# @ louis
+#: functions.php:78
+msgid "Primary Menu"
+msgstr "Основное меню"
+
+# @ louis
+#: functions.php:92
+msgid "Home"
+msgstr "Главная"
+
+# @ louis
+#: functions.php:98
+msgid "Pricing"
+msgstr "Расценки"
+
+# @ louis
+#: functions.php:104
+msgid "Blog"
+msgstr "Блог"
+
+# @ louis
+#: functions.php:110 inc/customizer.php:222
+msgid "Contact"
+msgstr "Контакты"
+
+# @ louis
+#: functions.php:116
+msgid "Members"
+msgstr "Участники"
+
+# @ louis
+#: functions.php:122
+msgid "Sign up"
+msgstr ""
+
+# @ louis
+#: functions.php:137
+msgid "Search"
+msgstr "Поиск"
+
+# @ louis
+#: functions.php:143 inc/widgets/author-box.php:141
+msgid "AUTHOR PROFILE"
+msgstr "Профайл автора"
+
+# @ louis
+#: functions.php:162 functions.php:163 functions.php:164 functions.php:165
+msgid "Text Widget"
+msgstr "Текст Виджета"
+
+# @ louis
+#: functions.php:181
+msgid "Modern Design"
+msgstr "Современный дизайн"
+
+# @ louis
+#: functions.php:188
+msgid "eCommerce Ready"
+msgstr ""
+
+# @ louis
+#: functions.php:195
+msgid "Live Customize"
+msgstr ""
+
+# @ louis
+#: functions.php:202
+msgid "Coded With Care"
+msgstr ""
+
+# @ louis
+#: functions.php:237 inc/customizer.php:178
+msgid "About us"
+msgstr ""
+
+# @ louis
+#: functions.php:238
+msgid "Contact us"
+msgstr ""
+
+# @ louis
+#: functions.php:278
+msgid "Sidebar"
+msgstr "Сайдбар"
+
+# @ louis
+#: functions.php:288
+msgid "Footer"
+msgstr ""
+
+# @ louis
+#: functions.php:297
+msgid "Features"
+msgstr ""
+
+# @ louis
+#: functions.php:316
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr ""
+
+# @ louis
+#: functions.php:317
+msgctxt "Arimo font: on or off"
+msgid "on"
+msgstr ""
+
+# @ louis
+#: functions.php:330 functions.php:337
+msgctxt " font: on or off"
+msgid "on"
+msgstr ""
+
+# @ louis
+#: header-archives.php:124 inc/template-tags.php:92
+#, php-format
+msgid "Author: %s"
+msgstr "Автор: %s"
+
+# @ louis
+#: header-archives.php:127 inc/template-tags.php:98
+#, php-format
+msgid "Day: %s"
+msgstr "День: %s"
+
+# @ louis
+#: header-archives.php:130 inc/template-tags.php:96
+#, php-format
+msgid "Month: %s"
+msgstr "Месяц: %s"
+
+# @ louis
+#: header-archives.php:130 inc/template-tags.php:96
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+# @ louis
+#: header-archives.php:133 inc/template-tags.php:94
+#, php-format
+msgid "Year: %s"
+msgstr "Год: %s"
+
+# @ louis
+#: header-archives.php:133 inc/template-tags.php:94
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+# @ louis
+#: header-archives.php:135 inc/template-tags.php:126
+msgid "Archives"
+msgstr "Архивы"
+
+# @ louis
+#: header-inside.php:115 inc/widgets/recent-popular.php:63
+#: inc/widgets/recent-popular.php:90
+msgid "Leave a comment"
+msgstr "Добавить комментарий"
+
+# @ louis
+#: header-inside.php:115 inc/widgets/recent-popular.php:63
+#: inc/widgets/recent-popular.php:90
+msgid "1 Comment"
+msgstr "1 Комментарий"
+
+# @ louis
+#: header-inside.php:115 inc/widgets/recent-popular.php:63
+#: inc/widgets/recent-popular.php:90
+msgid "% Comments"
+msgstr "% Комментариев"
+
+# @ louis
+#: inc/customizer.php:60
+msgid "Homepage Setup"
+msgstr "Главная Настройка"
+
+# @ louis
+#: inc/customizer.php:65
+msgid "Site Identity"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:71
+msgid "Title and Tagline"
+msgstr "Название сайта и слоган"
+
+# @ louis
+#: inc/customizer.php:78
+msgid "Header logo"
+msgstr "Логотип в шапке"
+
+# @ louis
+#: inc/customizer.php:92
+msgid "Show header logo or text"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:96
+msgid "Logo"
+msgstr "Лого"
+
+# @ louis
+#: inc/customizer.php:96
+msgid "Text"
+msgstr "Текст"
+
+# @ louis
+#: inc/customizer.php:106
+msgid "Header logo image"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:114
+msgid "Hero Banner"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:116
+msgid "Big banner section on the front page - background image"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:129
+msgid "Background image"
+msgstr "Фоновое изображение"
+
+# @ louis
+#: inc/customizer.php:135
+msgid "LOUIS WORDPRESS THEME"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:141 inc/widgets/author-box.php:166
+msgid "Title"
+msgstr "Заголовок"
+
+# @ louis
+#: inc/customizer.php:155
+msgid "Main text"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:170
+msgid "Show button 1"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:174 inc/customizer.php:218 inc/customizer.php:276
+#: inc/customizer.php:329 inc/customizer.php:518
+msgid "Yes"
+msgstr "Да"
+
+# @ louis
+#: inc/customizer.php:174 inc/customizer.php:218 inc/customizer.php:276
+#: inc/customizer.php:329 inc/customizer.php:518
+msgid "No"
+msgstr "Нет"
+
+# @ louis
+#: inc/customizer.php:185
+msgid "Button 1 text"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:199
+msgid "Button 1 link"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:214
+msgid "Show button 2"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:229
+msgid "Button 2 text"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:243
+msgid "Button 2 link"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:257
+msgid "Blur amount (pixels)"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:272
+msgid "Overlay the image with color"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:288
+msgid "Hero image overlay color"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:302
+msgid "Overlay opacity (between 0 and 100)"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:312
+msgid "Social"
+msgstr "Соц. сети"
+
+# @ louis
+#: inc/customizer.php:325
+msgid "Show social icons below the hero banner text"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:333
+msgid "http://twitter.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:339
+msgid "Twitter URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:344
+msgid "http://facebook.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:350
+msgid "Facebook URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:355
+msgid "http://pinterest.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:361
+msgid "Pinterest URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:366
+msgid "http://linkedin.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:372
+msgid "LinkedIn URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:377
+msgid "http://plus.google.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:383
+msgid "Google+ URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:388
+msgid "http://behance.net"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:394
+msgid "Behance URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:399 inc/customizer.php:410
+msgid "http://dribbble.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:405 inc/customizer.php:416
+msgid "Dribbble URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:421
+msgid "http://flickr.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:427
+msgid "Flickr URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:432
+msgid "http://500px.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:438
+msgid "500px URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:443
+msgid "http://reddit.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:449
+msgid "Reddit URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:454
+msgid "http://wordpress.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:460
+msgid "Wordpress URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:465
+msgid "http://youtube.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:471
+msgid "Youtube URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:476
+msgid "http://soundcloud.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:482
+msgid "Soundcloud URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:487
+msgid "http://medium.com"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:493
+msgid "Medium URL"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:500
+msgid "Footer logo"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:514
+msgid "Show footer logo"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:528
+msgid "Footer logo image"
+msgstr ""
+
+# @ louis
+#: inc/customizer.php:539
+msgid "Fonts"
+msgstr "Fonts (Шрифты)"
+
+# @ louis
+#: inc/customizer.php:552
+msgid "Header Font"
+msgstr "Шрифт заголовка"
+
+# @ louis
+#: inc/customizer.php:568
+msgid "Body Font"
+msgstr "Шрифт страницы"
+
+# @ louis
+#: inc/customizer.php:587
+msgid "Accent color"
+msgstr "Цвет иконок"
+
+# @ louis
+#: inc/partials/content-404.php:12
+msgid "Page Not Found"
+msgstr "Страницу не найдено"
+
+# @ louis
+#: inc/partials/content-404.php:14
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Ничего не было найдено. Может попробовать одну из следующих ссылок или новый поиск?"
+
+# @ louis
+#: inc/partials/content-404.php:21
+msgid "Most Used Categories"
+msgstr "Популярные категории"
+
+# @ louis
+#. translators: %1$s: smiley
+#: inc/partials/content-404.php:38
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Попробуйте поискать в  ежемесячных архивах. %1$s"
+
+# @ louis
+#: inc/partials/content-none.php:18
+msgid "Nothing Found"
+msgstr "Найдено ничего"
+
+# @ louis
+#: inc/partials/content-none.php:22
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Готовы опубликовать свою первую запись? <a href=\"%1$s\">Начните отсюда</a>."
+
+# @ louis
+#: inc/partials/content-none.php:26
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Извините, по вашему запросу ничего не найдено. Попробуйте другие ключевые слова."
+
+# @ louis
+#: inc/partials/content-none.php:32
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Кажется, мы можем найти то, что вы ищете. Возможно, поиск может помочь."
+
+# @ louis
+#: inc/partials/content-page-full.php:18 inc/partials/content-page.php:18
+#: inc/partials/content-single.php:20
+msgid "Pages:"
+msgstr "Страницы:"
+
+# @ louis
+#: inc/partials/content-page-full.php:22 inc/partials/content-page.php:22
+#: inc/partials/content-single.php:24
+msgid "Edit"
+msgstr "Редактировать"
+
+# @ louis
+#: inc/template-tags.php:24
+msgid "Posts navigation"
+msgstr "Навигация по записям"
+
+# @ louis
+#: inc/template-tags.php:29
+msgid "Older posts"
+msgstr "Назад"
+
+# @ louis
+#: inc/template-tags.php:33
+msgid "Newer posts"
+msgstr "Вперед"
+
+# @ louis
+#: inc/template-tags.php:60
+msgid "Post navigation"
+msgstr "Навигация по записи"
+
+# @ louis
+#: inc/template-tags.php:88
+#, php-format
+msgid "Category: %s"
+msgstr "Категории: %s"
+
+# @ louis
+#: inc/template-tags.php:90
+#, php-format
+msgid "Tag: %s"
+msgstr "Метки: %s"
+
+# @ louis
+#: inc/template-tags.php:98
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr ""
+
+# @ louis
+#: inc/template-tags.php:101
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr "Заметки"
+
+# @ louis
+#: inc/template-tags.php:103
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "Галереи"
+
+# @ louis
+#: inc/template-tags.php:105
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Изображения"
+
+# @ louis
+#: inc/template-tags.php:107
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr "Видео"
+
+# @ louis
+#: inc/template-tags.php:109
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Цитаты"
+
+# @ louis
+#: inc/template-tags.php:111
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Ссылки"
+
+# @ louis
+#: inc/template-tags.php:113
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Статусы"
+
+# @ louis
+#: inc/template-tags.php:115
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr "Аудио"
+
+# @ louis
+#: inc/template-tags.php:117
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr "Чаты"
+
+# @ louis
+#: inc/template-tags.php:120
+#, php-format
+msgid "Archives: %s"
+msgstr "Архивы: %s"
+
+# @ louis
+#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+#: inc/template-tags.php:124
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:13
+msgid "Author Box Widget"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:15
+msgid "Author box widget for the sidebar"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:129
+msgid "Settings for author: "
+msgstr "Параметры для автора:"
+
+# @ louis
+#: inc/widgets/author-box.php:142
+msgid "About the author text"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:174
+msgid "About:"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:181
+msgid "Twitter url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:187
+msgid "Facebook url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:193
+msgid "Dribbble url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:199
+msgid "Pinterest url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:205
+msgid "Linkedin url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:211
+msgid "Drupal url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:217
+msgid "Wordpress url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:223
+msgid "Y-combinator url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:229
+msgid "Google+ url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:235
+msgid "Behance url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:241
+msgid "500px url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:247
+msgid "Flickr url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:253
+msgid "Reddit url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:259
+msgid "Youtube url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:265
+msgid "Soundcloud url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:271
+msgid "Medium url"
+msgstr ""
+
+# @ louis
+#: inc/widgets/author-box.php:279
+msgid "Image:"
+msgstr "Изображение:"
+
+# @ louis
+#: inc/widgets/author-box.php:285
+msgid "Select Image"
+msgstr ""
+
+# @ louis
+#: inc/widgets/feature-widget.php:91
+msgid "Title:"
+msgstr "Заголовок:"
+
+# @ louis
+#: inc/widgets/feature-widget.php:100
+msgid "URL:"
+msgstr ""
+
+# @ louis
+#: inc/widgets/feature-widget.php:108
+msgid "Icon (see <a href=\"http://fortawesome.github.io/Font-Awesome/icons/\" target=\"_blank\">this link</a> for reference):"
+msgstr ""
+
+# @ louis
+#: inc/widgets/feature-widget.php:115
+msgid "Text:"
+msgstr "Текст:"
+
+# @ louis
+#: inc/widgets/recent-popular.php:10
+msgid "Recent / Popular Posts"
+msgstr "Последнее/Популярное"
+
+# @ louis
+#: inc/widgets/recent-popular.php:12
+msgid "Recent / popular posts widget for the sidebar"
+msgstr ""
+
+# @ louis
+#: inc/widgets/recent-popular.php:140
+msgid "Popular"
+msgstr "Популярное"
+
+# @ louis
+#: inc/widgets/recent-popular.php:141
+msgid "Recent"
+msgstr "Последние"
+
+# @ louis
+#: inc/widgets/recent-popular.php:148
+msgid "Title for Popular posts"
+msgstr ""
+
+# @ louis
+#: inc/widgets/recent-popular.php:156
+msgid "Title for Recent posts"
+msgstr ""
+
+# @ louis
+#: inc/widgets/recent-popular.php:164
+msgid "Select popular posts from"
+msgstr ""
+
+# @ louis
+#: inc/widgets/recent-popular.php:169
+msgid "Today"
+msgstr "За сутки"
+
+# @ louis
+#: inc/widgets/recent-popular.php:171
+msgid "Last Week"
+msgstr "За неделю"
+
+# @ louis
+#: inc/widgets/recent-popular.php:173
+msgid "Last Month"
+msgstr "За месяц"
+
+# @ louis
+#: inc/widgets/recent-popular.php:175
+msgid "Last Year"
+msgstr "За год"
+
+# @ louis
+#: inc/widgets/recent-popular.php:177
+msgid "All Time"
+msgstr "За все время"
+
+# @ louis
+#: inc/widgets/recent-popular.php:183
+msgid "Items to show:"
+msgstr ""
