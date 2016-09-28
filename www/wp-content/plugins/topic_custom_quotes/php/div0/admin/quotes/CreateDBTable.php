@@ -13,9 +13,12 @@ class CreateDBTable {
         if(!$tableExists) {
             $sql = "CREATE TABLE " . $table_name . " (
 	  id mediumint(9) NOT NULL AUTO_INCREMENT,
-	  quote text NOT NULL,
+	  note text NOT NULL,
 	  author int NOT NULL,
+	  authorName text NOT NULL,
 	  post int NOT NULL,
+	  state int(11) NOT NULL DEFAULT '0',
+	  sentenceId int(11) NOT NULL,
 	  UNIQUE KEY id (id)
 	);";
 

@@ -46,7 +46,8 @@ global $quotes_db_version;
 $quotes_db_version = "1.0";
 
 createQuoteStates();
-createQuotesPostType();
+//createQuotesAfdmin();
+//createQuotesPostType();
 $isFrontend = !is_admin();
 $currentPostType = WPUtils::getCurrentPostType();
 
@@ -55,13 +56,15 @@ if($isFrontend){
 }
 else{
     $quoteStates = createQuoteStates();
+    /*
     if($currentPostType == Quote::$postType){
         new CustomizeQuotesAdminTable();
     }
+    */
 
-    add_action( 'admin_init', 'quote_admin' );
+    //add_action( 'admin_init', 'quote_admin' );
     // save quote
-    add_action( 'save_post_quote', 'quote_admin_save', 10, 2 );
+    //add_action( 'save_post_quote', 'quote_admin_save', 10, 2 );
 
     register_activation_hook( __FILE__, 'my_plugin_create_db' );
 }
@@ -113,7 +116,20 @@ function onSiteFrontendLoad(){
     new DecoratePostContentWithUserAndPostData();
 }
 
+function my_plugin_menu() {
+    add_menu_page( 'Цитаты опции', 'Цитаты', 'edit_posts', 'quotes', 'my_plugin_options', plugin_dir_url(__FILE__) . 'images/icon_wporg.png', 20);
+}
 
+function my_plugin_options() {
+    if ( !current_user_can( 'manage_options' ) )  {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    }
+    echo '<div class="wrap">';
+    echo '<p>Here is where the form would go if I actually had options.</p>';
+    echo '</div>';
+}
+
+add_action( 'admin_menu', 'my_plugin_menu' );
 
 //ajax
 function save_quote_callback() {
