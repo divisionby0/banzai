@@ -1,24 +1,23 @@
 <?php
 
-class CreateDBTable {
+
+class CreateQuotesDBTable
+{
     public function __construct(){
         global $wpdb;
         global $quotes_db_version;
 
         $charset_collate = $wpdb->get_charset_collate();
-        $table_name = $wpdb->prefix . 'topic_custom_quotes';
+        $table_name = $wpdb->prefix . 'custom_quotes';
 
         $tableExists = $wpdb->get_var("show tables like '$table_name'") == $table_name;
 
         if(!$tableExists) {
             $sql = "CREATE TABLE " . $table_name . " (
 	  id mediumint(9) NOT NULL AUTO_INCREMENT,
-	  note text NOT NULL,
-	  author int NOT NULL,
-	  authorName text NOT NULL,
-	  post int NOT NULL,
-	  state int(11) NOT NULL DEFAULT '0',
-	  sentenceId int(11) NOT NULL,
+	  quote text NOT NULL,
+	  postId int NOT NULL,
+	  sentenceId int NOT NULL,
 	  UNIQUE KEY id (id)
 	);";
 
@@ -28,4 +27,4 @@ class CreateDBTable {
             add_option("quotes_db_version", $quotes_db_version);
         }
     }
-} 
+}

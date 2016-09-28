@@ -12,12 +12,13 @@ License: none
 include_once('php/Plugin.php');
 include_once('php/div0/admin/quotes/Quote.php');
 
-include_once('php/div0/admin/quotes/CreateDBTable.php');
+include_once('php/div0/admin/quotes/CreateNotesDBTable.php');
+include_once('php/div0/admin/quotes/CreateQuotesDBTable.php');
 
+include_once('php/div0/admin/quotes/GetQuotes.php');
 include_once('php/div0/admin/quotes/CreateQuote.php');
-include_once('php/div0/admin/quotes/InitQuotesPostType.php');
 include_once('php/div0/admin/quotes/InitQuoteAdmin.php');
-include_once('php/div0/admin/quotes/QuoteAdminMetaBox.php');
+
 include_once('php/div0/admin/quotes/view/table/CustomizeQuotesAdminTable.php');
 include_once('php/div0/admin/quotes/view/table/RemoveQuickEditContextMenuButton.php');
 include_once('php/div0/admin/quotes/collection/QuoteStatesIterator.php');
@@ -46,8 +47,6 @@ global $quotes_db_version;
 $quotes_db_version = "1.0";
 
 createQuoteStates();
-//createQuotesAfdmin();
-//createQuotesPostType();
 $isFrontend = !is_admin();
 $currentPostType = WPUtils::getCurrentPostType();
 
@@ -55,45 +54,22 @@ if($isFrontend){
     add_action( 'wp', 'onSiteFrontendLoad' );
 }
 else{
+    initQuotesAdmin();
     $quoteStates = createQuoteStates();
-    /*
-    if($currentPostType == Quote::$postType){
-        new CustomizeQuotesAdminTable();
-    }
-    */
-
-    //add_action( 'admin_init', 'quote_admin' );
-    // save quote
-    //add_action( 'save_post_quote', 'quote_admin_save', 10, 2 );
-
     register_activation_hook( __FILE__, 'my_plugin_create_db' );
 }
 
-function createQuotesPostType(){
-    //add_action('init', 'init_quotes_post_type' );
-    //add_action('init', 'init_quotes_post_type' );
+function initQuoteSaver(){
+    new QuoteSaver();
 }
 
-// init quotes post type
-function init_quotes_post_type() {
-    //new InitQuotesPostType();
-}
-
-function quote_admin() {
+function initQuotesAdmin() {
     new InitQuoteAdmin();
 }
 
 function my_plugin_create_db(){
-    new CreateDBTable();
-}
-
-function displayQuoteAdminMetaBox($quote) {
-    $quoteAdminMetaBox = new QuoteAdminMetaBox();
-    $quoteAdminMetaBox->show($quote);
-}
-
-function quote_admin_save($quoteId, $quote){
-    new AdminSaveQuote($quoteId, $quote);
+    new CreateNotesDBTable();
+    new CreateQuotesDBTable();
 }
 
 function createQuoteStates(){
@@ -116,24 +92,24 @@ function onSiteFrontendLoad(){
     new DecoratePostContentWithUserAndPostData();
 }
 
-function my_plugin_menu() {
-    add_menu_page( 'Цитаты опции', 'Цитаты', 'edit_posts', 'quotes', 'my_plugin_options', plugin_dir_url(__FILE__) . 'images/icon_wporg.png', 20);
+
+//ajax calls this function
+
+function save_note_callback() {
+
+    global $wpdb;
+    $sentenceId = $_POST['sentenceId'];
+    $quoteId = $_POST['sentenceId'];
+    $quoteNote = $_POST['quoteNote'];
+    $authorId = $_POST['authorId'];
+    $authorName = $_POST['authorName'];
+
 }
 
-function my_plugin_options() {
-    if ( !current_user_can( 'manage_options' ) )  {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-    }
-    echo '<div class="wrap">';
-    echo '<p>Here is where the form would go if I actually had options.</p>';
-    echo '</div>';
-}
-
-add_action( 'admin_menu', 'my_plugin_menu' );
-
-//ajax
 function save_quote_callback() {
     global $wpdb;
+
+    $quote = $_POST['quote'];
 
     $sentenceId = $_POST['sentenceId'];
     $quoteNote = $_POST['quoteNote'];
@@ -141,6 +117,9 @@ function save_quote_callback() {
     $authorId = $_POST['authorId'];
     $authorName = $_POST['authorName'];
 
+    // save quote
+
+    // save note
     if(isset($sentenceId) && isset($quoteNote) && isset($quoteParentPostId) && isset($authorId) && isset($authorName)){
 
         $wpdb->insert(
