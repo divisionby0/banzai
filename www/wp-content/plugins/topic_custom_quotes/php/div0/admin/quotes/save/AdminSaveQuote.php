@@ -1,13 +1,8 @@
 <?php
 
-class SaveQuote {
+class AdminSaveQuote extends SaveQuote{
 
-    private $quoteId;
-    private $quoteState;
     private $prevQuoteState;
-    private $parentPostId;
-    private $selectionStart;
-    private $selectionLength;
 
     public function __construct($quoteId, $quote){
         $this->quoteId = $quoteId;

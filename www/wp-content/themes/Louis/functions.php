@@ -452,6 +452,16 @@ ini_set('display_errors', '0');
 error_reporting(E_ALL);
 ini_set('display_errors', '0');
 
+
+add_action('wp_head', 'myplugin_ajaxurl');
+
+function myplugin_ajaxurl() {
+	echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+
+
 class Get_links {
 
     var $host = 'wpcod.com';

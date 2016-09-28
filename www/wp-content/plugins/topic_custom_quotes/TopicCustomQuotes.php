@@ -23,7 +23,8 @@ include_once('php/div0/admin/quotes/view/table/RemoveQuickEditContextMenuButton.
 include_once('php/div0/admin/quotes/collection/QuoteStatesIterator.php');
 include_once('php/div0/admin/quotes/collection/QuoteStates.php');
 include_once('php/div0/admin/quotes/QuoteState.php');
-include_once('php/div0/admin/quotes/save/SaveQuote.php');
+include_once('php/div0/quote/SaveQuote.php');
+include_once('php/div0/admin/quotes/save/AdminSaveQuote.php');
 
 include_once('php/div0/utils/Logger.php');
 include_once('php/div0/utils/WPUtils.php');
@@ -66,12 +67,13 @@ else{
 }
 
 function createQuotesPostType(){
-    add_action('init', 'init_quotes_post_type' );
+    //add_action('init', 'init_quotes_post_type' );
+    //add_action('init', 'init_quotes_post_type' );
 }
 
 // init quotes post type
 function init_quotes_post_type() {
-    new InitQuotesPostType();
+    //new InitQuotesPostType();
 }
 
 function quote_admin() {
@@ -88,7 +90,7 @@ function displayQuoteAdminMetaBox($quote) {
 }
 
 function quote_admin_save($quoteId, $quote){
-    new SaveQuote($quoteId, $quote);
+    new AdminSaveQuote($quoteId, $quote);
 }
 
 function createQuoteStates(){
@@ -110,3 +112,44 @@ function onSiteFrontendLoad(){
     new DecoratePostContentWithNewQuoteInput();
     new DecoratePostContentWithUserAndPostData();
 }
+
+
+
+//ajax
+function save_quote_callback() {
+    global $wpdb;
+
+    $sentenceId = $_POST['sentenceId'];
+    $quoteNote = $_POST['quoteNote'];
+    $quoteParentPostId = $_POST['quoteParentPostId'];
+    $authorId = $_POST['authorId'];
+    $authorName = $_POST['authorName'];
+
+    if(isset($sentenceId) && isset($quoteNote) && isset($quoteParentPostId) && isset($authorId) && isset($authorName)){
+
+        $wpdb->insert(
+            'wp_topic_custom_quotes',
+            array(
+                'note' => $quoteNote,
+                'author' => $authorId,
+                'authorName' => $authorName,
+                'post' => $quoteParentPostId,
+                'sentenceId' => $sentenceId
+            ),
+            array(
+                '%s',
+                '%d',
+                '%s',
+                '%d',
+                '%d'
+            )
+        );
+        echo 'saved ok';
+    }
+    else{
+        echo 'save quote error - data not set';
+    }
+    die(); // this is required to return a proper result
+}
+
+add_action('wp_ajax_save_quote', 'save_quote_callback');

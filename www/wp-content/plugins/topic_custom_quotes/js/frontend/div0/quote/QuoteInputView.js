@@ -50,7 +50,9 @@ var QuoteInputView = function(){
     }
 
     function createQuoteRequestHandler(){
-        console.log('Create quote request');
+        console.log('Create quote request ');
+
+
     }
 
     function addListeners(){

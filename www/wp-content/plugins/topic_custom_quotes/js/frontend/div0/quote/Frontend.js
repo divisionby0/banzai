@@ -16,6 +16,7 @@ var Frontend = function(){
     var tooltipButton;
     var quoteInputView;
     var quote;
+    var selectedSentenceId;
 
 
     function removeAllStyleAttributes(){
@@ -77,23 +78,15 @@ var Frontend = function(){
     }
 
     function saveQuoteRequestHandler(event){
-        console.log('save quote request: ');
-        console.log(event.data);
-        var quoteText = event.data.quote;
         var noteText = event.data.note;
-        buildQuote(quoteText, noteText, currentUser, currentPostId);
+        buildQuote(noteText, currentUser, currentPostId);
+        var saveQuote = new SaveQuote();
+        saveQuote.execute(quote);
     }
 
-    function buildQuote(quoteText, noteText, currentUser,currentPostId ){
+    function buildQuote(noteText, currentUser,currentPostId ){
         var quoteBuilder = new BuildQuote();
-        quote = quoteBuilder.execute(quoteText, noteText, currentUser,currentPostId);
-
-        console.log("Quote:");
-        console.log(quote.getQuoteText());
-        console.log('note: '+quote.getNote());
-        var author = quote.getAuthor();
-        console.log('Author id: '+author.getId()+"  name: "+author.getName());
-        console.log('parentPostId: '+quote.getParentPostId());
+        quote = quoteBuilder.execute(selectedSentenceId, noteText, currentUser,currentPostId);
     }
 
     return{
@@ -118,6 +111,7 @@ var Frontend = function(){
                     }
 
                     selectedSentence = $(this);
+                    selectedSentenceId = selectedSentence.attr('id');
                     getElementPosition();
                     addTooltip();
 

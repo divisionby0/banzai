@@ -1,18 +1,18 @@
 var Quote = function(){
-    var quoteText;
+    var sentenceId;
     var noteText;
     var author;
     var parentPostId;
 
     return{
-        create:function(_quoteText, _noteText, _author, _parentPostId){
-            quoteText = _quoteText;
+        create:function(_sentenceId, _noteText, _author, _parentPostId){
+            sentenceId = _sentenceId;
             noteText = _noteText;
             author = _author;
             parentPostId = _parentPostId;
         },
-        getQuoteText:function(){
-            return quoteText;
+        getSentenceId:function(){
+            return sentenceId;
         },
         getNote:function(){
             return noteText;
