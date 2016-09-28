@@ -17,6 +17,7 @@ var Frontend = function(){
     var quoteInputView;
     var quote;
     var selectedSentenceId;
+    var sentence;
 
 
     function removeAllStyleAttributes(){
@@ -27,8 +28,7 @@ var Frontend = function(){
         tooltipElement.appendTo(selectedSentence);
         selectedSentence.addClass('selectedSentence');
         var sentenceHeight = selectedSentence.height();
-        tooltipElement.css({left: 100});
-        tooltipElement.css({top: elementPositionY - 500});
+        //tooltipElement.css({left: 100});
         createTooltipButton();
     }
 
@@ -44,15 +44,19 @@ var Frontend = function(){
     }
 
     function removeTooltipButton(){
-        tooltipButton.destroy();
-        tooltipButton = null;
+        if(tooltipButton){
+            tooltipButton.destroy();
+            tooltipButton = null;
+        }
     }
 
     function removeTooltipHtmlCode(text){
         var tooltipHtmlCodePosition = text.indexOf(tooltipHtml);
+
         if(tooltipHtmlCodePosition > 0){
             text = text.substring(0, tooltipHtmlCodePosition);
         }
+        return text;
     }
     function getElementPosition(){
         var elementPosition = HtmlElementUtils.getElementPosition(selectedSentence);
@@ -74,19 +78,101 @@ var Frontend = function(){
     }
 
     function addListeners(){
+        EventBus.addEventListener(CREATE_QUOTE_REQUEST, createQuoteRequestHandler);
         EventBus.addEventListener(SAVE_QUOTE_REQUEST, saveQuoteRequestHandler);
+        EventBus.addEventListener(QUOTE_DUPLICATION_RESULT, quoteDuplicationResultHandler);
+        EventBus.addEventListener(QUOTE_NOTE_SAVE_RESULT, quoteNoteSaveResultHandler);
+        EventBus.addEventListener(QUOTE_SAVE_ERROR, quoteSaveErrorHandler);
+        EventBus.addEventListener(QUOTE_SAVE_COMPLETE, quoteSaveCompleteHandler);
     }
 
-    function saveQuoteRequestHandler(event){
-        var noteText = event.data.note;
-        buildQuote(noteText, currentUser, currentPostId);
+    function quoteSaveErrorHandler(event){
+        alert(event.data);
+    }
+    function quoteSaveCompleteHandler(event){
+        var result = event.data;
+        var savedQuoteId = result.savedQuoteId;
+        saveNote(savedQuoteId);
+    }
+
+    function createQuoteRequestHandler(event){
+        console.log('createQuoteRequestHandler');
+        onCreateQuoteRequest();
+    }
+
+    function onCreateQuoteRequest(){
+        quoteInputView.setQuoteHtml(sentence);
+    }
+
+    function quoteNoteSaveResultHandler(event){
+        //console.log("quote note save result: "+event.data);
+
+        var result = event.data;
+        if(result == 'quote_note_saved'){
+            onQuoteNoteSaved();
+        }
+        else{
+            alert('error saving quote note');
+        }
+    }
+
+    function onQuoteNoteSaved(){
+        quoteInputView.clear();
+        removeTooltip();
+    }
+
+    function quoteDuplicationResultHandler(event){
+        var quoteDuplicationIdResponseObject = JSON.parse(event.data);
+
+        console.log("quoteDuplicationIdResponseObject");
+        console.log(quoteDuplicationIdResponseObject);
+
+        if(quoteDuplicationIdResponseObject){
+            var quoteSavedId = quoteDuplicationIdResponseObject.id;
+
+            if(quoteSavedId){
+                saveNote(quoteSavedId);
+            }
+            else{
+                saveQuote();
+            }
+        }
+        else{
+            saveQuote();
+        }
+    }
+
+    function saveNote(quoteSavedId){
+        var dataNote = {
+            action: 'save_quote_note',
+            quoteId: quoteSavedId,
+            quoteNote: quote.getNote(),
+            authorId: quote.getAuthor().getId(),
+            authorName:quote.getAuthor().getName()
+        };
+
+        var noteSaver = new SaveNote();
+        noteSaver.execute(quoteSavedId, dataNote);
+    }
+
+    function saveQuote(){
         var saveQuote = new SaveQuote();
         saveQuote.execute(quote);
     }
 
-    function buildQuote(noteText, currentUser,currentPostId ){
+    function saveQuoteRequestHandler(event){
+        var quoteText = event.data.quote;
+        var noteText = event.data.note;
+        buildQuote(quoteText, noteText, currentUser, currentPostId);
+
+        // detect quote text duplication
+        var quoteTextDuplicationDetect = new GetQuoteTextDuplicationId();
+        quoteTextDuplicationDetect.execute(quoteText);
+    }
+
+    function buildQuote(quoteText, noteText, currentUser,currentPostId ){
         var quoteBuilder = new BuildQuote();
-        quote = quoteBuilder.execute(selectedSentenceId, noteText, currentUser,currentPostId);
+        quote = quoteBuilder.execute(quoteText, selectedSentenceId, noteText, currentUser,currentPostId);
     }
 
     return{
@@ -103,8 +189,10 @@ var Frontend = function(){
             sentences.each(function( index ) {
                 $(this).click(function(event){
 
-                    var sentence = $(this).html();
-                    removeTooltipHtmlCode(sentence);
+                    //sentence = $(this).html();
+                    sentence = $(this).text();
+
+                    sentence = removeTooltipHtmlCode(sentence);
 
                     if(selectedSentence){
                         removeTooltip();
@@ -115,7 +203,7 @@ var Frontend = function(){
                     getElementPosition();
                     addTooltip();
 
-                    quoteInputView.setQuoteHtml(sentence);
+                    //quoteInputView.setQuoteHtml(sentence);
                 });
             });
         }

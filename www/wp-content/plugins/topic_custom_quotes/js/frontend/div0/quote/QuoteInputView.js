@@ -1,5 +1,4 @@
 var QuoteInputView = function(){
-
     var createQuoteButton;
     var quoteTextContainer;
     var quoteNoteInput;
@@ -49,22 +48,15 @@ var QuoteInputView = function(){
         quoteTextContainer.html(text);
     }
 
-    function createQuoteRequestHandler(){
-        console.log('Create quote request ');
-
-
-    }
-
     function addListeners(){
-        EventBus.addEventListener(CREATE_QUOTE_REQUEST, createQuoteRequestHandler);
+        //EventBus.addEventListener(CREATE_QUOTE_REQUEST, createQuoteRequestHandler);
     }
     function removeListeners(){
-        EventBus.removeEventListener(CREATE_QUOTE_REQUEST, createQuoteRequestHandler);
+        //EventBus.removeEventListener(CREATE_QUOTE_REQUEST, createQuoteRequestHandler);
     }
 
     return{
         init:function(){
-            console.log('QuoteInputView');
             $ = jQuery.noConflict();
             getContainer();
             getButton();
@@ -76,6 +68,12 @@ var QuoteInputView = function(){
         },
         setQuoteHtml:function(text){
             onQuoteChanged(text);
+        },
+        clear:function(){
+            note = '';
+            quote = '';
+            quoteTextContainer.html(quote);
+            quoteNoteInput.val(note);
         }
     }
 };

@@ -16,7 +16,7 @@ class CreateNotesDBTable {
 	  note text NOT NULL,
 	  author int NOT NULL,
 	  authorName text NOT NULL,
-	  quote int NOT NULL,
+	  quoteId int NOT NULL,
 	  state int(11) NOT NULL DEFAULT '0',
 	  UNIQUE KEY id (id)
 	);";

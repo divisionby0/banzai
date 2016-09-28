@@ -20,13 +20,15 @@ class IncludeFrontendScripts {
     }
     private function registerJsScripts(){
         wp_register_script( 'eventBus', $this->pluginDir.'/js/libs/EventBus.js' );
-        wp_register_script( 'quoteEvent', $this->pluginDir.'/js/frontend/div0/quote/QuoteEvent.js' );
         wp_register_script( 'htmlElementUtils', $this->pluginDir.'/js/frontend/div0/utils/HtmlElementUtils.js' );
         wp_register_script( 'user', $this->pluginDir.'/js/frontend/div0/user/User.js' );
         wp_register_script( 'userDataParser', $this->pluginDir.'/js/frontend/div0/user/UserDataParser.js' );
         wp_register_script( 'tooltipButton', $this->pluginDir.'/js/frontend/div0/quote/TooltipButton.js' );
 
+        wp_register_script( 'quoteEvent', $this->pluginDir.'/js/frontend/div0/quote/events/QuoteEvent.js' );
         wp_register_script( 'quote', $this->pluginDir.'/js/frontend/div0/quote/Quote.js' );
+        wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/GetQuoteTextDuplicationId.js' );
+        wp_register_script( 'saveNote', $this->pluginDir.'/js/frontend/div0/quote/SaveNote.js' );
         wp_register_script( 'saveQuote', $this->pluginDir.'/js/frontend/div0/quote/SaveQuote.js' );
         wp_register_script( 'buildQuote', $this->pluginDir.'/js/frontend/div0/quote/BuildQuote.js' );
         wp_register_script( 'quoteInputView', $this->pluginDir.'/js/frontend/div0/quote/QuoteInputView.js' );
@@ -45,7 +47,9 @@ class IncludeFrontendScripts {
         wp_enqueue_script( 'tooltipButton' );
 
         wp_enqueue_script( 'quote' );
+        wp_enqueue_script( 'getQuoteTextDuplicationId' );
         wp_enqueue_script( 'saveQuote' );
+        wp_enqueue_script( 'saveNote' );
         wp_enqueue_script( 'buildQuote' );
 
         wp_enqueue_script( 'quoteInputView' );

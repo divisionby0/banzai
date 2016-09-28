@@ -92,59 +92,88 @@ function onSiteFrontendLoad(){
     new DecoratePostContentWithUserAndPostData();
 }
 
-
 //ajax calls this function
 
-function save_note_callback() {
-
+function get_quote_text_duplication_id_callback(){
     global $wpdb;
-    $sentenceId = $_POST['sentenceId'];
-    $quoteId = $_POST['sentenceId'];
+    $quoteText = $_POST['quoteText'];
+    if(isset($quoteText)){
+        $quoteTextId = $wpdb->get_row ("SELECT id FROM wp_custom_quotes WHERE quote = '".$quoteText."'", ARRAY_A);
+        echo json_encode($quoteTextId);
+    }
+    else{
+        echo 'get_quote_text_duplication_id error';
+    }
+    die(); // this is required to return a proper result
+}
+
+function save_quote_note_callback() {
+    global $wpdb;
+
+    $quoteId = $_POST['quoteId'];
     $quoteNote = $_POST['quoteNote'];
     $authorId = $_POST['authorId'];
     $authorName = $_POST['authorName'];
 
+    // save quote
+    if(isset($quoteId) && isset($quoteNote) && isset($authorId) && isset($authorName)){
+        $wpdb->insert(
+            'wp_custom_quotes_notes',
+            array(
+                'quoteId' => $quoteId,
+                'note' => $quoteNote,
+                'author' => $authorId,
+                'authorName' => $authorName
+            ),
+            array(
+                '%d',
+                '%s',
+                '%d',
+                '%s'
+            )
+        );
+        echo 'quote_note_saved';
+    }
+    else{
+        echo 'save quote note error - data not set';
+    }
+    die(); // this is required to return a proper result
 }
 
 function save_quote_callback() {
     global $wpdb;
 
     $quote = $_POST['quote'];
-
     $sentenceId = $_POST['sentenceId'];
-    $quoteNote = $_POST['quoteNote'];
     $quoteParentPostId = $_POST['quoteParentPostId'];
-    $authorId = $_POST['authorId'];
-    $authorName = $_POST['authorName'];
 
     // save quote
-
-    // save note
-    if(isset($sentenceId) && isset($quoteNote) && isset($quoteParentPostId) && isset($authorId) && isset($authorName)){
+    if(isset($quote) && isset($sentenceId) && isset($quoteParentPostId)){
 
         $wpdb->insert(
-            'wp_topic_custom_quotes',
+            'wp_custom_quotes',
             array(
-                'note' => $quoteNote,
-                'author' => $authorId,
-                'authorName' => $authorName,
-                'post' => $quoteParentPostId,
+                'quote' => $quote,
+                'postId' => $quoteParentPostId,
                 'sentenceId' => $sentenceId
             ),
             array(
                 '%s',
                 '%d',
-                '%s',
-                '%d',
                 '%d'
             )
         );
-        echo 'saved ok';
+        $insertedId = $wpdb->insert_id;
+        $resultObject = array('status'=>'saved', 'savedQuoteId'=>$wpdb->insert_id);
+        echo json_encode($resultObject);
     }
     else{
-        echo 'save quote error - data not set';
+        $resultObject = array('status'=>'save error');
+        echo json_encode($resultObject);
     }
     die(); // this is required to return a proper result
 }
 
 add_action('wp_ajax_save_quote', 'save_quote_callback');
+add_action('wp_ajax_save_quote_note', 'save_quote_note_callback');
+add_action('wp_ajax_get_quote_text_duplication_id', 'get_quote_text_duplication_id_callback');
