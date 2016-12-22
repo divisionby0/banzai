@@ -19,6 +19,7 @@ var Frontend = function(){
     var selectedSentenceId;
     var sentence;
 
+    var ver = "0.0.1";
 
     function removeAllStyleAttributes(){
         $('*[style]').attr('style', '');
@@ -124,7 +125,7 @@ var Frontend = function(){
     function quoteDuplicationResultHandler(event){
         var quoteDuplicationIdResponseObject = JSON.parse(event.data);
 
-        console.log("quoteDuplicationIdResponseObject");
+        console.log("quoteDuplicationIdResponseObject: ");
         console.log(quoteDuplicationIdResponseObject);
 
         if(quoteDuplicationIdResponseObject){
@@ -165,10 +166,13 @@ var Frontend = function(){
         var noteText = event.data.note;
         buildQuote(quoteText, noteText, currentUser, currentPostId);
 
+        // TODO create chain of responsibility pattern
+
         // detect quote text duplication
-        var quoteTextDuplicationDetect = new GetQuoteTextDuplicationId();
-        quoteTextDuplicationDetect.execute(quoteText);
+        var quoteTextDuplicationIdRequest = new QuoteTextDuplicationIdRequest();
+        quoteTextDuplicationIdRequest.execute(quoteText);
     }
+
 
     function buildQuote(quoteText, noteText, currentUser,currentPostId ){
         var quoteBuilder = new BuildQuote();
@@ -177,6 +181,7 @@ var Frontend = function(){
 
     return{
         init:function(){
+            console.log("Frontend ver: "+ver);
             addListeners();
             createQuoteInputView();
             currentUser = getCurrentUser();

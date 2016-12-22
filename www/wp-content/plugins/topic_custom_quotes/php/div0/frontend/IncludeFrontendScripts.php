@@ -27,7 +27,9 @@ class IncludeFrontendScripts {
 
         wp_register_script( 'quoteEvent', $this->pluginDir.'/js/frontend/div0/quote/events/QuoteEvent.js' );
         wp_register_script( 'quote', $this->pluginDir.'/js/frontend/div0/quote/Quote.js' );
-        wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/GetQuoteTextDuplicationId.js' );
+        //wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/GetQuoteTextDuplicationId.js' );
+        wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/requests/QuoteTextDuplicationIdRequest.js' );
+
         wp_register_script( 'saveNote', $this->pluginDir.'/js/frontend/div0/quote/SaveNote.js' );
         wp_register_script( 'saveQuote', $this->pluginDir.'/js/frontend/div0/quote/SaveQuote.js' );
         wp_register_script( 'buildQuote', $this->pluginDir.'/js/frontend/div0/quote/BuildQuote.js' );
