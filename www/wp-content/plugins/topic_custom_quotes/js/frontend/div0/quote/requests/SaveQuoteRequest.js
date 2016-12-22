@@ -1,4 +1,4 @@
-var SaveQuote = function(){
+var SaveQuoteRequest = function(){
 
     var $ = jQuery.noConflict();
 
@@ -9,8 +9,9 @@ var SaveQuote = function(){
     
     return{
         execute:function(quote){
-            var pluginUrlContainer = $('#pluginUrlContainer');
-            var pluginUrl = pluginUrlContainer.text();
+            console.log("saving quote...");
+            //var pluginUrlContainer = $('#pluginUrlContainer');
+            //var pluginUrl = pluginUrlContainer.text();
 
             var dataQuote = {
                 action: 'save_quote',
@@ -19,6 +20,7 @@ var SaveQuote = function(){
                 quoteParentPostId: quote.getParentPostId(),
             };
 
+            /*
             var dataNote = {
                 action: 'save_quote_note',
                 quoteId: -1,
@@ -26,6 +28,7 @@ var SaveQuote = function(){
                 authorId: quote.getAuthor().getId(),
                 authorName:quote.getAuthor().getName()
             };
+            */
 
             // call function from plugin TopicCustomQuotes.php
             $.post(ajaxurl, dataQuote, function(response) {

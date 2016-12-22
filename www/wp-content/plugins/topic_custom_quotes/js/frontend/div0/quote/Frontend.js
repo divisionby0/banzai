@@ -128,7 +128,9 @@ var Frontend = function(){
         console.log("quoteDuplicationIdResponseObject: ");
         console.log(quoteDuplicationIdResponseObject);
 
-        if(quoteDuplicationIdResponseObject){
+        var quoteDuplicationIdResponseExists = quoteDuplicationIdResponseObject!=null;
+
+        if(quoteDuplicationIdResponseExists){
             var quoteSavedId = quoteDuplicationIdResponseObject.id;
 
             if(quoteSavedId){
@@ -152,12 +154,12 @@ var Frontend = function(){
             authorName:quote.getAuthor().getName()
         };
 
-        var noteSaver = new SaveNote();
+        var noteSaver = new SaveNoteRequest();
         noteSaver.execute(quoteSavedId, dataNote);
     }
 
     function saveQuote(){
-        var saveQuote = new SaveQuote();
+        var saveQuote = new SaveQuoteRequest();
         saveQuote.execute(quote);
     }
 

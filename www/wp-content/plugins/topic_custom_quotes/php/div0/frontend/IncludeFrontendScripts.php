@@ -30,8 +30,8 @@ class IncludeFrontendScripts {
         //wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/GetQuoteTextDuplicationId.js' );
         wp_register_script( 'getQuoteTextDuplicationId', $this->pluginDir.'/js/frontend/div0/quote/requests/QuoteTextDuplicationIdRequest.js' );
 
-        wp_register_script( 'saveNote', $this->pluginDir.'/js/frontend/div0/quote/SaveNote.js' );
-        wp_register_script( 'saveQuote', $this->pluginDir.'/js/frontend/div0/quote/SaveQuote.js' );
+        wp_register_script( 'saveNoteRequest', $this->pluginDir.'/js/frontend/div0/quote/requests/SaveNoteRequest.js' );
+        wp_register_script( 'saveQuoteRequest', $this->pluginDir.'/js/frontend/div0/quote/requests/SaveQuoteRequest.js' );
         wp_register_script( 'buildQuote', $this->pluginDir.'/js/frontend/div0/quote/BuildQuote.js' );
         wp_register_script( 'quoteInputView', $this->pluginDir.'/js/frontend/div0/quote/QuoteInputView.js' );
         wp_register_script( 'frontend', $this->pluginDir.'/js/frontend/div0/quote/Frontend.js' );
@@ -50,8 +50,8 @@ class IncludeFrontendScripts {
 
         wp_enqueue_script( 'quote' );
         wp_enqueue_script( 'getQuoteTextDuplicationId' );
-        wp_enqueue_script( 'saveQuote' );
-        wp_enqueue_script( 'saveNote' );
+        wp_enqueue_script( 'saveQuoteRequest' );
+        wp_enqueue_script( 'saveNoteRequest' );
         wp_enqueue_script( 'buildQuote' );
 
         wp_enqueue_script( 'quoteInputView' );
